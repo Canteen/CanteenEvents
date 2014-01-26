@@ -1,0 +1,290 @@
+{
+    "project": {
+        "name": "Canteen Events API",
+        "description": "Generalized Event dispatching API",
+        "version": "1.0.1",
+        "logo": ""
+    },
+    "files": {
+        "src/Canteen/Events/Event.php": {
+            "name": "src/Canteen/Events/Event.php",
+            "modules": {},
+            "classes": {
+                "Event": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/Canteen/Events/EventDispatcher.php": {
+            "name": "src/Canteen/Events/EventDispatcher.php",
+            "modules": {
+                "Canteen\\Events": 1
+            },
+            "classes": {
+                "EventDispatcher": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Canteen\\Events": {
+            "name": "Canteen\\Events",
+            "submodules": {},
+            "classes": {
+                "Event": 1,
+                "EventDispatcher": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 8
+        }
+    },
+    "classes": {
+        "Event": {
+            "name": "Event",
+            "shortname": "Event",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Events",
+            "file": "src/Canteen/Events/Event.php",
+            "line": 23,
+            "description": "Event is the base class for classes containing event data.\nThis class contains no event data. It is used by events that do not pass\nstate information to an event handler when an event is raised.\nYou can call the method `stopPropagation()` to abort the execution of\nfurther listeners in your event listener.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "type",
+                    "description": "The type of this event being dispatched",
+                    "type": "String"
+                }
+            ]
+        },
+        "EventDispatcher": {
+            "name": "EventDispatcher",
+            "shortname": "EventDispatcher",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Canteen\\Events",
+            "namespace": "",
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 8,
+            "description": "Basic EventDispatcher adapated from Symphony's EventDispatcher\nbut simplified to mirror the Canteen Client dispatcher API."
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/Canteen/Events/Event.php",
+            "line": 10,
+            "description": "Whether no further event listeners should be triggered",
+            "itemtype": "property",
+            "name": "propagationStopped",
+            "type": "Boolean",
+            "access": "private",
+            "tagname": "",
+            "class": "Event"
+        },
+        {
+            "file": "src/Canteen/Events/Event.php",
+            "line": 17,
+            "description": "This event's type",
+            "itemtype": "property",
+            "name": "type",
+            "type": "String",
+            "class": "Event"
+        },
+        {
+            "file": "src/Canteen/Events/Event.php",
+            "line": 38,
+            "description": "Returns whether further event listeners should be triggered.",
+            "itemtype": "method",
+            "name": "isPropagationStopped",
+            "return": {
+                "description": "Whether propagation was already stopped for this event.",
+                "type": "Boolean"
+            },
+            "class": "Event"
+        },
+        {
+            "file": "src/Canteen/Events/Event.php",
+            "line": 48,
+            "description": "Stops the propagation of the event to further event listeners.\n\nIf multiple event listeners are connected to the same event, no\nfurther event listener will be triggered once any trigger calls\nstopPropagation().",
+            "itemtype": "method",
+            "name": "stopPropagation",
+            "class": "Event"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 15,
+            "description": "The collection of listeners",
+            "itemtype": "property",
+            "name": "listeners",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 22,
+            "description": "The collection of sorted listeners",
+            "itemtype": "property",
+            "name": "sorted",
+            "type": "Array",
+            "access": "private",
+            "tagname": "",
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 29,
+            "description": "Dispatches an event to all registered listeners.",
+            "itemtype": "method",
+            "name": "trigger",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "The name of the event to dispatch or\n  the Event object. The name of the event is the name of the method \n  that is invoked on listeners.",
+                    "type": "String|Event"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Event"
+            },
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 65,
+            "description": "Checks whether an event has any registered listeners.",
+            "itemtype": "method",
+            "name": "has",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The name of the event",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "true if the specified event has any listeners, false otherwise",
+                "type": "Boolean"
+            },
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 76,
+            "description": "Adds an event listener that listens on the specified events.",
+            "itemtype": "method",
+            "name": "on",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The event to listen on or collection of events",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "listener",
+                    "description": "The listener",
+                    "type": "Callable"
+                },
+                {
+                    "name": "priority",
+                    "description": "The higher this value, the earlier an event\n\t listener will be triggered in the chain",
+                    "type": "Int",
+                    "optional": true,
+                    "optdefault": "0"
+                }
+            ],
+            "return": {
+                "description": "Reference reference of this for chaining",
+                "type": "EventDispatcher"
+            },
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 100,
+            "description": "Removes an event listener from the specified events.",
+            "itemtype": "method",
+            "name": "off",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The event(s) to remove a listener from",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "listener",
+                    "description": "The listener to remove, if not specified\n  removes all listeners with matching event type",
+                    "type": "Callable",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ],
+            "return": {
+                "description": "Reference reference of this for chaining",
+                "type": "EventDispatcher"
+            },
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 140,
+            "description": "Gets the listeners of a specific event or all listeners.",
+            "itemtype": "method",
+            "name": "getListeners",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The type of the event",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "null"
+                }
+            ],
+            "return": {
+                "description": "The event listeners for the specified event, or all event listeners by event name",
+                "type": "Array"
+            },
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        },
+        {
+            "file": "src/Canteen/Events/EventDispatcher.php",
+            "line": 168,
+            "description": "Sorts the internal list of listeners for the given event by priority.",
+            "itemtype": "method",
+            "name": "sortListeners",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "eventType",
+                    "description": "The name of the event.",
+                    "type": "String"
+                }
+            ],
+            "class": "EventDispatcher",
+            "module": "Canteen\\Events"
+        }
+    ],
+    "warnings": []
+}
