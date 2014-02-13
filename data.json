@@ -2,12 +2,12 @@
     "project": {
         "name": "Canteen Events API",
         "description": "Generalized Event dispatching API",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "logo": ""
     },
     "files": {
-        "src/Canteen/Events/Event.php": {
-            "name": "src/Canteen/Events/Event.php",
+        "src/Event.php": {
+            "name": "src/Event.php",
             "modules": {},
             "classes": {
                 "Event": 1
@@ -15,8 +15,8 @@
             "fors": {},
             "namespaces": {}
         },
-        "src/Canteen/Events/EventDispatcher.php": {
-            "name": "src/Canteen/Events/EventDispatcher.php",
+        "src/EventDispatcher.php": {
+            "name": "src/EventDispatcher.php",
             "modules": {
                 "Canteen\\Events": 1
             },
@@ -38,7 +38,7 @@
             "fors": {},
             "namespaces": {},
             "tag": "module",
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 8
         }
     },
@@ -52,7 +52,7 @@
             "plugin_for": [],
             "extension_for": [],
             "module": "Canteen\\Events",
-            "file": "src/Canteen/Events/Event.php",
+            "file": "src/Event.php",
             "line": 23,
             "description": "Event is the base class for classes containing event data.\nThis class contains no event data. It is used by events that do not pass\nstate information to an event handler when an event is raised.\nYou can call the method `stopPropagation()` to abort the execution of\nfurther listeners in your event listener.",
             "is_constructor": 1,
@@ -74,14 +74,14 @@
             "extension_for": [],
             "module": "Canteen\\Events",
             "namespace": "",
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 8,
             "description": "Basic EventDispatcher adapated from Symphony's EventDispatcher\nbut simplified to mirror the Canteen Client dispatcher API."
         }
     },
     "classitems": [
         {
-            "file": "src/Canteen/Events/Event.php",
+            "file": "src/Event.php",
             "line": 10,
             "description": "Whether no further event listeners should be triggered",
             "itemtype": "property",
@@ -92,7 +92,7 @@
             "class": "Event"
         },
         {
-            "file": "src/Canteen/Events/Event.php",
+            "file": "src/Event.php",
             "line": 17,
             "description": "This event's type",
             "itemtype": "property",
@@ -101,7 +101,7 @@
             "class": "Event"
         },
         {
-            "file": "src/Canteen/Events/Event.php",
+            "file": "src/Event.php",
             "line": 38,
             "description": "Returns whether further event listeners should be triggered.",
             "itemtype": "method",
@@ -113,7 +113,7 @@
             "class": "Event"
         },
         {
-            "file": "src/Canteen/Events/Event.php",
+            "file": "src/Event.php",
             "line": 48,
             "description": "Stops the propagation of the event to further event listeners.\n\nIf multiple event listeners are connected to the same event, no\nfurther event listener will be triggered once any trigger calls\nstopPropagation().",
             "itemtype": "method",
@@ -121,7 +121,7 @@
             "class": "Event"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 15,
             "description": "The collection of listeners",
             "itemtype": "property",
@@ -133,7 +133,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 22,
             "description": "The collection of sorted listeners",
             "itemtype": "property",
@@ -145,7 +145,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 29,
             "description": "Dispatches an event to all registered listeners.",
             "itemtype": "method",
@@ -165,7 +165,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 65,
             "description": "Checks whether an event has any registered listeners.",
             "itemtype": "method",
@@ -185,7 +185,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 76,
             "description": "Adds an event listener that listens on the specified events.",
             "itemtype": "method",
@@ -217,7 +217,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 100,
             "description": "Removes an event listener from the specified events.",
             "itemtype": "method",
@@ -244,7 +244,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 140,
             "description": "Gets the listeners of a specific event or all listeners.",
             "itemtype": "method",
@@ -268,7 +268,7 @@
             "module": "Canteen\\Events"
         },
         {
-            "file": "src/Canteen/Events/EventDispatcher.php",
+            "file": "src/EventDispatcher.php",
             "line": 168,
             "description": "Sorts the internal list of listeners for the given event by priority.",
             "itemtype": "method",
